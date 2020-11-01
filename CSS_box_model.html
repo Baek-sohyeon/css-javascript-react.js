@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--크기 단위-->
+    <style>
+        #large { font-size: 200%; }
+        #small { font-size: 0.7em; }
+        #fixed { font-size: 20px; }
+    </style>
+
+    <!--height와 width 속성-->
+    <style>
+        div { height: 200px; width: 500px; }
+    </style>
+
+    <!-- max-width 속성-->
+    <style>
+        div.maxWidth { max-width: 500px; }
+    </style>
+
+    <!-- min-width 속성-->
+    <style>
+        div.minWidth { min-width: 500px; }
+    </style>
+
+    <!-- max-height 속성-->
+    <style>
+        p { max-height: 50px; overflow: auto; }
+    </style>
+
+    <!--min-height 속성-->
+    <style>
+        p { min-height: 100px; }
+    </style>
+
+    <!--박스 모델(box model)-->
+    <!--모든 HTML 요소는 박스(box) 모양으로 구성되며, 이것을 박스 모델(box model)이라고 부름-->
+    <!--박스 모델은 HTML 요소를 패딩(padding), 테두리(border), 마진(margin), 그리고 내용(content)으로 구분-->
+
+    <!-- 1. 내용(content) : 텍스트나 이미지가 들어있는 박스의 실질적인 내용 부분-->
+    <!-- 2. 패딩(padding) : 내용과 테두리 사이의 간격, 패딩은 눈에 보이지 않음-->
+    <!-- 3. 테두리(border) : 내용와 패딩 주변을 감싸는 테두리-->
+    <!-- 4. 마진(margin) : 테두리와 이웃하는 요소 사이의 간격,마진은 눈에 보이지 않음-->
+
+    <style>
+        div {
+            background-color: red;
+            padding: 50px;
+            border: 20px solid maroon;
+            margin: 50px;
+        }
+    </style>
+
+    <!-- height와 width 속성의 이해-->
+    <style>
+        div {
+            width: 320px;
+            padding: 10px;
+            border: 5px solid maroon;
+            margin: 0;
+        }
+    </style>
+
+    <!--패딩(padding) 속성-->
+
+    <style>
+        div.pad {
+            padding-top: 50px;
+            padding-right: 10px;
+            padding-bottom: 30px;
+            padding-left: 100px;
+        }
+    </style>
+
+    <!--패딩 축약 표현(padding shorthand)-->
+    <style>
+        div.four { padding: 20px 50px 30px 50px; }
+        div.three { padding: 20px 50px 30px; }
+    </style>
+
+<!-- 테두리(border)-->
+    <!-- border-style 속성-->
+    <style>
+        .dotted {border-style: dotted;}
+        .dashed {border-style: dashed;}
+        .solid {border-style: solid;}
+        .double {border-style: double;}
+        .groove {border-style: groove;}
+        .ridge {border-style: ridge;}
+        .inset {border-style: inset;}
+        .outset {border-style: outset;}
+        .none {border-style: none;}
+        .hidden {border-style: hidden;}
+        .mix {border-style: solid dashed dotted double;}
+    </style>
+
+    <!-- border-width 속성-->
+    <style>
+        .dottedA { border-style: dotted; border-width: 2px; }
+        .dottedB { border-style: dotted; border-width: 5px; }
+        .dashedA { border-style: dashed; border-width: thin; }
+        .dashedB { border-style: dashed; border-width: thick; }
+        .doubleA { border-style: double; border-width: 5px; }
+        .doubleB { border-style: double; border-width: thick; }
+        .mix { border-style: solid; border-width: 1px 2px 10px thick; }
+    </style>
+
+    <!-- border-color 속성-->
+    <style>
+        .red { border-color: red; }
+        .green { border-color: rgb(0,255,0); }
+        .blue { border-color: #0000FF; }
+        .mix { border-color: red green blue maroon; }
+        .color { color: teal; }
+    </style>
+
+    <!-- 테두리(border)의 개별 설정-->
+    <style>
+        .mixA {
+            border-top-style: dotted;
+            border-right-style: double;
+            border-bottom-style: dotted;
+            border-left-style: double;
+        }
+        .mixB { border-style: dotted double; }
+    </style>
+
+    <!--테두리 축약 표현(border shorthand)-->
+    <style>
+        .good { border: 3px solid teal; }
+        .wrong { border: 5px teal; }
+    </style>
+
+<!--마진(Margin)-->
+
+    <style>
+        div.mar {
+            margin-top: -25px;
+            margin-right: 10px;
+            margin-bottom: 30px;
+            margin-left: 100px;
+        }
+    </style>
+    <!-- margin 속성값을 inherit로 설정하면, 부모(parent) 요소의 margin 속성값을 그대로 물려받음-->
+    <style>
+        div.parent { height: 100px; margin-left: 100px; }
+        div.child { background-color: #FFF8DC; margin-left: inherit; }
+    </style>
+
+    <!--마진 축약 표현(margin shorthand)-->
+    <style>
+        div.four { margin: 20px 50px 30px 50px; }
+        div.three { margin: 20px 50px 30px; }
+    </style>
+
+    <!-- margin 속성값에 auto를 사용하는 이유-->
+    <!-- margin 속성값을 auto로 설정하면, 웹 브라우저가 수평 방향 마진(margin) 값을 자동으로 설정-->
+    <style>
+        div {
+            border: 2px solid teal;
+            width: 300px;
+            margin: auto;
+        }
+    </style>
+
+<!--아웃라인(Outline)-->
+<!--outline 속성은 HTML 요소의 가장 바깥 부분을 둘러싸고 있는 아웃라인 부분의 스타일을 설정-->
+    <style>
+        p.dotted {outline-style: dotted;}
+        p.dashed {outline-style: dashed;}
+        p.solid {outline-style: solid;}
+        p.double {outline-style: double;}
+        p.groove {outline-style: groove;}
+        p.ridge {outline-style: ridge;}
+        p.inset {outline-style: inset;}
+        p.outset {outline-style: outset;}
+        p.none {outline-style: none;}
+        p.hidden {outline-style: hidden;}
+    </style>
+
+    <!-- outline-width 속성-->
+    <style>
+        p.solidA { outline-style: solid; outline-color: violet; outline-width: 2px; }
+        p.solidB { outline-style: solid; outline-color: coral; outline-width: 7px; }
+        p.dashedA { outline-style: dashed; outline-color: violet; outline-width: thin; }
+        p.dashedB { outline-style: dashed; outline-color: coral; outline-width: thick; }
+    </style>
+
+    <!--outline-color 속성-->
+    <style>
+        p { border: 1px solid black; outline-style: dashed; }
+        p.red { outline-color: red; }
+        p.green { outline-color: rgb(0,255,0); }
+        p.blue { outline-color: #0000FF; }
+        p.invert { outline-color: invert; }
+    </style>
+
+    <!-- 아웃라인 축약 표현(outline shorthand)-->
+    <style>
+        p { border: 1px solid black; }
+        p.none { border-style: none; }
+        p.good { outline: 3px solid teal; }
+        p.wrong { outline: 5px teal; }
+    </style>
+</head>
+<body>
+
+</body>
+</html>

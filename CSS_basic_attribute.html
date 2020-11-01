@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--css 색상 표현 방법-->
+        <!--색상 이름으로 표현-->
+            <style>
+                .blue { color: blue; }
+                .green { color: green; }
+                .silver { color: silver; }
+            </style>
+
+        <!--RGB 색상값으로 표현-->
+            <style>
+                .blue { color: rgb(0,0,255); }
+                .green { color: rgb(0,128,0); }
+                .silver { color: rgb(192,192,192); }
+            </style>
+
+        <!--16진수 색상값으로 표현-->
+            <style>
+                .blue { color: #0000FF; }
+                .green { color: #008000; }
+                .silver { color: #C0C0C0; }
+            </style>
+
+    <!-- CSS 배경-->
+        <!--background-color 속성-->
+        <style>
+            body { background-color: lightblue; }
+            h1 { background-color: rgb(255,128,0); }
+            p { background-color: #FFFFCC; }
+        </style>
+
+        <!--background-image 속성-->
+        <style>
+            body { background-image: url("four-stars_01.png"); }
+        </style>
+
+        <!--background-repeat 속성-->
+        <!--배경 이미지를 수평이나 수직 방향으로만 반복되도록 설정-->
+        <style>
+            body { background-image: url("four-stars_01.png"); background-repeat: repeat-x; }
+        </style>
+
+        <style>
+            body { background-image: url("four-stars_01.png"); background-repeat: repeat-y; }
+        </style>
+
+        <style>
+            body { background-image: url("four-stars_01.png"); background-repeat: no-repeat; }
+        </style>
+
+        <!--background-position 속성-->
+        <!--배경 이미지의 상대 위치(relative position)를 설정-->
+        <style>
+            body {
+                background-image: url("four-stars_01.png");
+                background-repeat: no-repeat;
+                background-position: top right;
+            }
+
+        </style>
+
+        <!--background-attachment 속성-->
+        <!-- 위치가 설정된 배경 이미지를 해당 위치에 고정-->
+        <style>
+            body {
+                background-image: url("four-stars_01.png");
+                background-repeat: no-repeat;
+                background-position: left bottom;
+                background-attachment: fixed;
+            }
+        </style>
+
+        <!--background 속성 한 번에 적용-->
+        <style>
+            body { background: #FFCCCC url("four-stars_01.png") no-repeat left bottom fixed; }
+        </style>
+
+    <!--CSS 텍스트-->
+        <!--color 속성-->
+        <style>
+            body { color: red; }
+            p { color: maroon; }
+        </style>
+
+        <!--direction 속성-->
+        <style>
+            .rightToLeft { direction: rtl; }
+        </style>
+
+        <!--letter-spacing 속성-->
+        <style>
+            .decLetterSpacing { letter-spacing: -3px; }
+            .incLetterSpacing { letter-spacing: 10px; }
+        </style>
+
+        <!--word-spacing 속성-->
+        <style>
+            .decWordSpacing { word-spacing: -3px; }
+            .incWordSpacing { word-spacing: 10px; }
+        </style>
+
+        <!--text-indent 속성-->
+        <style>
+            .paraIndent { text-indent: 30px; }
+        </style>
+
+        <!-- text-align 속성-->
+        <style>
+            h2 { text-align: left; }
+            h3 { text-align: right; }
+            h4 { text-align: center; }
+        </style>
+
+        <!--text-decoration 속성-->
+        <style>
+            h2 { text-decoration: overline; }
+            h3 { text-decoration: line-through; }
+            h4 { text-decoration: underline; }
+            a { text-decoration: none; }
+        </style>
+
+        <!--text-transform 속성-->
+        <style>
+            h2 { text-transform: uppercase; }
+            h3 { text-transform: lowercase; }
+            h4 { text-transform: capitalize; }
+        </style>
+
+        <!--line-height 속성-->
+        <style>
+            .narrowLineHeight { line-height: 0.8; }
+            .wideLineHeight { line-height: 1.8; }
+        </style>
+
+        <!--text-shadow 속성-->
+        <style>
+            h2 { text-shadow: 2px 1px #3399CC; }
+        </style>
+
+    <!--CSS 글꼴-->
+        <!--글꼴 집합-->
+        <!-- - generic family : 비슷한 모양을 가지는 글꼴 집합 ("Serif", "Monospace" 등)-->
+        <!-- - font family : 특정 글꼴 집합 ("Times", "Courier" 등)-->
+
+        <!--font-family 속성-->
+        <style>
+            .serif { font-family: "Times New Roman", Times, serif; }
+            .sansserif { font-family: Arial, Helvetica, sans-serif; }
+        </style>
+
+        <!--font-style 속성-->
+        <style>
+            .normal { font-style: normal; }
+            .italic { font-style: italic; }
+            .oblique { font-style: oblique; }
+        </style>
+
+        <!--font-variant 속성-->
+        <style>
+            .normal { font-variant: normal; }
+            .smallCaps { font-variant: small-caps; }
+        </style>
+
+        <!--font-weight 속성-->
+        <style>
+            .normal { font-weight: normal; }
+            .bold { font-weight: 600; }
+            .bolder { font-weight: bolder; }
+        </style>
+
+        <!--font-size 속성값-->
+        <!-- 1. 절대적 크기-->
+        <!-- 2. 상대적 크기-->
+
+        <style>
+            body { font-size: 100%; }
+            #large { font-size: 2.5em; }
+            #small { font-size: 0.7em; }
+            #fixed { font-size: 20px; }
+        </style>
+
+    <!--CSS 링크-->
+
+        <style>
+            a {
+                background-color: #FFFFE0;
+                color: darkslategray;
+                font-size: 1.3em;
+                text-decoration: none;
+            }
+        </style>
+
+        <!-- 링크(link)의 상태-->
+        <!-- 1. link : 링크의 기본 상태이며, 사용자가 아직 한 번도 해당 링크를 통해 연결된 페이지를 방문하지 않은 상태입니다.-->
+        <!-- 2. visited : 사용자가 한 번이라도 해당 링크를 통해 연결된 페이지를 방문한 상태입니다.-->
+        <!-- 3. hover : 사용자의 마우스 커서가 링크 위에 올라가 있는 상태입니다.-->
+        <!-- 4. active : 사용자가 마우스로 링크를 클릭하고 있는 상태입니다.-->
+        <!-- 5. focus : 키보드나 마우스의 이벤트(event) 또는 다른 형태로 해당 요소가 포커스(focus)를 가지고 있는 상태입니다.-->
+        <style>
+            a:link { color: olive; }
+            a:visited { color: brown; }
+            a:hover { color: coral; }
+            a:active { color: khaki; }
+        </style>
+
+        <!--링크를 활용한 버튼(Button)-->
+        <style>
+            a:link, a:visited {
+                background-color: #FFA500;
+                color: maroon;
+                padding: 15px 25px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+            }
+            a:hover, a:active { background-color: #FF4500; }
+        </style>
+
+    <!--CSS 리스트-->
+        <!-- list-style-type 속성-->
+        <style>
+            .circle { list-style-type: circle; }
+            .square { list-style-type: square; }
+            .upperAlpha { list-style-type: upper-alpha; }
+            .lowerRoman { list-style-type: lower-roman; }
+        </style>
+        <!-- list-style-image 속성-->
+        <style>
+            .imageMarker { list-style-image: url("four-stars_01.png"); }
+        </style>
+
+        <!-- list-style-position 속성-->
+        <style>
+            .outside { list-style-position: outside; }
+            .inside { list-style-position: inside; }
+        </style>
+
+        <!-- list-style 속성 한 번에 적용-->
+        <style>
+            ul { list-style: square inside url("four-stars_01.png"); }
+        </style>
+
+        <!-- 리스트에 배경색 적용-->
+        <style>
+            ul { background: #D2691E; padding: 15px; }
+            ol { background: #6495ED; padding: 15px; }
+            ul li { background: #DEB887; margin: 5px; }
+            ol li { background: #00FFFF; margin-left: 15px; }
+        </style>
+
+    <!-- CSS 테이블-->
+        <!-- border 속성-->
+        <style>
+            table, th, td { border: 2px solid orange; }
+        </style>
+
+        <!-- border-collapse 속성-->
+        <style>
+            table, th, td { border: 2px solid orange; }
+            table { border-collapse: collapse; }
+        </style>
+
+        <!-- border-spacing 속성-->
+        <style>
+            table, th, td { border: 1px solid black; }
+            table { width: 100%; border-collapse: seperate; border-spacing: 20px 30px; }
+        </style>
+
+        <!--text-align 속성-->
+        <style>
+            table, th, td { border: 1px solid black; }
+            table { border-collapse: collapse; width: 100%; }
+            th { text-align: left; }
+            td { text-align: center; }
+        </style>
+
+        <!-- vertical-align 속성-->
+        <style>
+            table, th, td { border: 1px solid black; }
+            table { border-collapse: collapse; width: 100%; }
+            th { vertical-align: top; height: 50px; }
+            td { vertical-align: bottom; height: 50px; }
+        </style>
+
+    <!-- CSS 이미지 스프라이트-->
+        <style>
+            .up, .down, .right, .left { background: url("four-stars_01.png") no-repeat; }
+            .up { width: 21px; height: 20px; background-position: 0 0; }
+            .down { width: 21px; height: 20px; background-position: -21px 0; }
+            .right { width: 22px; height: 20px; background-position: -42px 0; }
+            .left { width: 22px; height: 20px; background-position: -65px 0; }
+        </style>
+</head>
+<body>
+
+
+</body>
+</html>

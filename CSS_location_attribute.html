@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<!--디스플레이-->
+    <!--display 속성의 기본 설정값의 변경-->
+    <style>
+        li { display: inline; }
+    </style>
+
+    <!--인라인-블록(inline-block)-->
+    <style>
+        div { width: 100px; height: 50px; }
+
+        .first { background-color: aqua; }
+        .second { background-color: green; }
+        .third { background-color: yellow; }
+
+        .inline { display: inline; }
+        .inline-block { display: inline-block; }
+    </style>
+
+    <!--visibility 속성-->
+    <!--1. visible : 해당 HTML 요소를 웹 페이지에 나타냄-->
+    <!--2. hidden : HTML 요소를 웹 페이지에 나타내지 않음. 하지만 여전히 웹 페이지의 레이아웃에는 존재-->
+    <!--3. collapse : 이 속성값은 동적인 테이블에서만 사용할 수 있으며, 테이블의 테두리를 한 줄만 보여줌-->
+
+    <style>
+        p.none { display: none; }
+        p.hidden { visibility: hidden; }
+    </style>
+
+    <!--opacity 속성-->
+    <!--opacity 속성을 이용하면 HTML 요소의 투명도를 간단히 조절할 수 있다.-->
+    <style>
+        img { opacity: 0.4; filter: alpha(opacity=40); }
+        img:hover { opacity: 1.0; filter: alpha(opacity=100); }
+    </style>
+
+<!--포지션-->
+    <!--정적 위치(static position) 지정 방식-->
+    <style>
+        div { position: static; }
+    </style>
+
+    <!--상대 위치(relative position) 지정 방식-->
+    <style>
+        div.relative { position: relative; left: 30px; }
+    </style>
+
+    <!-- 고정 위치(fixed position) 지정 방식-->
+    <style>
+        div.fixed { position: fixed; top: 0; right: 0; }
+    </style>
+
+    <!--절대 위치(absolute position) 지정 방식-->
+    <style>
+        div.absolute { position: absolute; top: 50px; right: 0; }
+    </style>
+
+    <!-- z-index 속성-->
+    <style>
+        .last {
+            position: fixed;
+            top: 180px;
+            left: 120px;
+            z-index: -1;
+        }
+    </style>
+<!--Float-->
+    <!-- float 속성-->
+    <!-- float 속성은 해당 HTML 요소가 주변의 다른 요소들과 자연스럽게 어울리도록 만들어 줌-->
+
+    <style>
+        img { float: left; margin-right: 20px; }
+    </style>
+
+    <!-- clear 속성-->
+    <!--clear 속성은 float 속성이 적용된 이후 나타나는 요소들의 동작을 조절-->
+    <style>
+        .left { background-color: #FF8C00; width: 150px; height: 50px; float: left; }
+        .right { background-color: #9932CC; width: 150px; height: 50px; float: right; }
+        p { clear: both; }
+    </style>
+
+    <!--overflow 속성-->
+    <!--overflow 속성값을 auto로 설정하면, 컨테이너 요소의 크기가 자동으로 내부의 요소를 감쌀 수 있을 만큼 커지게 됨-->
+    <style>
+        div { border: 3px solid #73AD21; padding: 5px;}
+        img { float: left; }
+        .good { overflow: auto; }
+    </style>
+
+    <!--float 속성을 이용한 레이아웃-->
+    <style>
+        div.page { border: 3px solid #CD5C5C; overflow: auto; }
+        h2 { text-align: center; }
+        header{ border: 3px solid #FFD700; }
+        nav { border: 3px solid #FF1493; width: 150px; float: left; }
+        section { border: 3px solid #00BFFF; margin-left: 156px; }
+        footer{ border: 3px solid #00FA9A; }
+    </style>
+
+<!-- 정렬(align)-->
+    <!--margin 속성을 이용한 가운데 정렬-->
+    <style>
+        div { width: 300px; margin: auto; }
+    </style>
+
+    <!--position 속성을 이용한 좌우 정렬-->
+    <style>
+        div { width: 300px; padding: 10px; margin: 0; position: absolute; right: 0; }
+    </style>
+
+    <!--float 속성을 이용한 좌우 정렬-->
+    <style>
+        div { width: 350px; padding: 10px; margin: 0; }
+        div.left { float: left }
+        div.right { float: right }
+    </style>
+
+</head>
+<body>
+
+</body>
+</html>

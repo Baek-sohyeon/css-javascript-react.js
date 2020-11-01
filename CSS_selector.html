@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<!--선택자(selector)-->
+    <!--전체 선택자-->
+    <style>
+        * { color: red; }
+    </style>
+    <!-- HTML 요소 선택자-->
+    <style>
+        h2 { color: teal; text-decoration: underline; }
+    </style>
+
+    <!-- 아이디(id) 선택자-->
+    <style>
+        #heading { color: sandybrown; text-decoration: line-through; }
+    </style>
+
+    <!-- 클래스(class) 선택자-->
+    <style>
+        .headings { color: deepskyblue; text-decoration: overline; }
+    </style>
+
+    <!--그룹 선택자-->
+    <style>
+        h2 { color: navy; }
+        h2, h3 { text-align: center; }
+        h2, h3, p { background-color: lightgray; }
+    </style>
+
+
+<!--결합 선택자-->
+    <!--자손 선택자(descendant selector)-->
+    <style>
+        div p { background-color: #FFEFD5; }
+    </style>
+
+    <!-- 자식 선택자(child selector)-->
+    <style>
+        div > p { background-color: #FFEFD5; }
+    </style>
+
+    <!--동위 선택자(sibling selector)-->
+    <!--동위 선택자는 동위 관계에 있는 요소 중에서 해당 요소보다 뒤에 존재하는 특정 타입의 요소를 모두 선택-->
+
+    <!-- 일반 동위 선택자(general sibling selector)-->
+    <!--일반 동위 선택자는 해당 요소와 동위 관계에 있으며, 해당 요소보다 뒤에 존재하는 특정 타입의 요소를 모두 선택-->
+    <style>
+        div ~ p { background-color: #FFE4E1; }
+    </style>
+
+    <!--인접 동위 선택자(adjacent sibling selector)-->
+    <!-- 인접 동위 선택자는 해당 요소와 동위 관계에 있으며, 해당 요소의 바로 뒤에 존재하는 특정 타입의 요소를 모두 선택-->
+    <style>
+        div + p { background-color: #FFE4E1; }
+    </style>
+
+    <!-- 동적 의사 클래스(dynamic pseudo-class)-->
+    <style>
+        a:link {color: orange;}
+        a:visited {color: gray;}
+        a:hover {color: blue;}
+        a:active {color: red;}
+        div:hover { background-color: blue; color: white; }
+    </style>
+
+    <!--링크(link)의 상태-->
+    <style>
+        input { border: 3px solid #FFEFD5; transition: 0.5s; }
+        input:focus { border: 3px solid #CD853F; }
+    </style>
+
+    <!--상태 의사 클래스(UI element states pseudo-class)-->
+        <!--:checked-->
+        <style>
+            input { color: #FFEFD5; }
+            input:checked + span { color: #CD853F; }
+        </style>
+
+        <!-- :enabled와 :disabled-->
+        <style>
+            input { color: #FFEFD5; }
+            input:disabled + span { color: #CD853F; }
+        </style>
+
+    <!-- 구조 의사 클래스(structural pseudo-class)-->
+    <!--:first-child-->
+    <!--모든 자식(child) 요소 중에서 맨 앞에 위치하는 자식(child) 요소를 모두 선택-->
+    <style>
+        p:first-child { color: red; font-weight: bold; }
+    </style>
+
+    <!--:last-child-->
+    <!-- 모든 자식(child) 요소 중에서 맨 마지막에 위치하는 자식(child) 요소를 모두 선택-->
+    <style>
+        p:last-child { color: red; font-weight: bold; }
+    </style>
+
+    <!--:nth-child-->
+    <!--모든 자식(child) 요소 중에서 앞에서부터 n번째에 위치하는 자식(child) 요소를 모두 선택-->
+    <style>
+        p:nth-child(2n) { color: red; font-weight: bold; }
+    </style>
+
+    <!--:nth-last-child-->
+    <!--모든 자식(child) 요소 중에서 뒤에서부터 n번째에 위치하는 자식(child) 요소를 모두 선택-->
+    <style>
+        p:nth-last-child(3n) { color: red; font-weight: bold; }
+    </style>
+
+    <!--:first-of-type-->
+    <!--모든 자식(child) 요소 중에서 맨 처음으로 등장하는 특정 타입의 요소를 모두 선택-->
+    <style>
+        p:first-of-type { color: red; font-weight: bold; }
+    </style>
+
+    <!-- :last-of-type-->
+    <!-- 모든 자식(child) 요소 중에서 맨 마지막으로 등장하는 특정 타입의 요소를 모두 선택-->
+    <style>
+        p:last-of-type { color: red; font-weight: bold; }
+    </style>
+
+    <!--:nth-of-type-->
+    <!--모든 자식(child) 요소 중에서 n번째로 등장하는 특정 타입의 요소를 모두 선택-->
+    <style>
+        p:nth-of-type(2n) { color: red; font-weight: bold; }
+    </style>
+
+    <!-- :nth-last-of-type-->
+    <!--모든 자식(child) 요소 중에서 뒤에서부터 n번째로 등장하는 특정 타입의 요소를 모두 선택-->
+    <style>
+        p:nth-last-of-type(2n+1) { color: red; font-weight: bold; }
+    </style>
+
+    <!--:only-child-->
+    <!--자식(child) 요소를 단 하나만 가지는 요소의 자식(child) 요소를 모두 선택-->
+    <style>
+        p:only-child { color: red; font-weight: bold; }
+    </style>
+
+    <!-- :only-of-type-->
+    <!--자식(child)  요소로 특정 타입의 요소 단 하나만을 가지는 요소의 자식(child) 요소를 모두 선택-->
+    <style>
+        p:only-of-type { color: red; font-weight: bold; }
+    </style>
+
+    <!--:empty-->
+    <!--자식(child) 요소를 전혀 가지고 있지 않은 요소를 모두 선택-->
+    <style>
+        p:empty { width: 300px; height: 20px; background: red; }
+    </style>
+
+    <!--:root-->
+    <!-- 해당 문서의 root 요소를 선택-->
+    <style>
+        :root { background: white; }
+    </style>
+
+    <!--의사 요소(pseudo-element)-->
+    <!--의사 요소(pseudo-element)는 해당 HTML 요소의 특정 부분만을 선택할 때 사용-->
+
+    <!--::first-letter-->
+    <!--텍스트의 첫 글자만을 선택, 블록 타입 요소만 사용 가능-->
+    <style>
+        p::first-letter { color: #FF4500; font-size: 2em; }
+    </style>
+
+    <!--::first-line-->
+    <!--텍스트의 첫 라인만을 선택, 블록 타입 요소만 사용 가능-->
+    <style>
+        p::first-line { color: #FF4500; font-size: 2em; }
+    </style>
+
+    <!--::before-->
+    <!--특정 요소의 내용(content) 부분 바로 앞에 다른 요소를 삽입할 때 사용-->
+    <style>
+        p::before { content: url("four-stars_01.png"); }
+    </style>
+
+    <!--::after-->
+    <!--특정 요소의 내용(content) 부분 바로 뒤에 다른 요소를 삽입할 때 사용-->
+    <style>
+        p::after { content: url("four-stars_01.png"); }
+    </style>
+
+    <!--::selection-->
+    <!--해당 요소에서 사용자가 선택한 부분만을 선택할 때 사용-->
+    <style>
+        p::selection { color: #FF4500; }
+    </style>
+
+    <!-- 의사 요소의 동시 적용-->
+    <style>
+        p::first-letter { color: #FFD700; font-size: 2em; font-weight: bold; }
+        p::first-line { color: #FF4500; }
+    </style>
+
+    <!--속성 선택자(attribute selectors)-->
+    <!-- 특정 속성이나 특정 속성값을 가지고 있는 HTML 요소를 선택가능-->
+<!--기본 속성 선택자-->
+    <!--[속성이름] 선택자-->
+    <style>
+        [title] { background: black; color: yellow; }
+    </style>
+
+    <!--[속성이름="속성값"] 선택자-->
+    <style>
+        [title="first h2"] { background: black; color: yellow; }
+    </style>
+
+<!--문자열 속성 선택자-->
+
+    <!--[속성이름~="속성값"] 선택자-->
+    <style>
+        [title~="first"] { background: black; color: yellow; }
+    </style>
+
+    <!--[속성이름|="속성값"] 선택자-->
+    <style>
+        [title|="first"] { background: black; color: yellow; }
+    </style>
+
+    <!--[속성이름^="속성값"] 선택자-->
+    <style>
+        [title^="first"] { background: black; color: yellow; }
+    </style>
+
+    <!--[속성이름$="속성값"] 선택자-->
+    <style>
+        [title$="first"] { background: black; color: yellow; }
+    </style>
+
+    <!--[속성이름*="속성값"] 선택자-->
+    <style>
+        [title*="first"] { background: black; color: yellow; }
+    </style>
+
+    <!--속성 선택자의 활용-->
+    <style>
+        input[type="text"] { width: 150px; display: block; background-color: #FFEFD5; margin-bottom: 10px; }
+        input[type="password"] { width: 130px; display: block; background-color: #90EE90; border: solid 2px red; }
+        input[type="password"]:focus { background-color: #FFC0CB; }
+    </style>
+
+
+<!--기타 의사 클래스-->
+    <!-- :not-->
+    <!--모든 선택자와 함께 사용할 수 있으며, 해당 선택자를 반대로 적용하여 선택-->
+    <style>
+        input { color: #FFEFD5; }
+        input:not([type="password"]) { background-color: #CD853F; }
+    </style>
+
+    <!--:lang-->
+    <!--특정 HTML 요소를 사용자 컴퓨터의 언어 설정에 따라 다르게 표현할 때 사용-->
+    <style>
+        :lang(en) { quotes: '"' '"'  "'"  "'"; }
+        :lang(fr) { quotes: "<<" ">>" "<" ">"; }
+    </style>
+</head>
+
+<body>
+    <h2>이 부분에 스타일을 적용합니다.</h2>
+    <h2 id="heading">이 부분에 스타일을 적용합니다.</h2>
+
+    <h2 class="headings">이 부분에 스타일을 적용합니다.</h2>
+    <p>클래스 선택자를 이용하여 스타일을 적용할 HTML 요소들을 한 번에 선택할 수 있습니다.</p>
+    <h3 class="headings">이 부분에도 같은 스타일을 적용합니다.</h3>
+
+    <div>
+        <p>결합 선택자 이 부분에도 같은 스타일을 적용</p>
+    </div>
+</body>
+</html>
