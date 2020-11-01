@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--form 요소-->
+<!--웹 페이지에서는 form 요소를 사용하여 사용자로부터 입력을 받을 수 있다-->
+<!--사용자가 form 요소를 통해 입력한 데이터는 action 속성에 명시된 위치로 method 속성의 방식을 통해 전달-->
+
+    <!--method 속성-->
+    <!--GET 방식은 주소에 데이터(data)를 추가하여 전달하는 방식-->
+        <!--데이터가 주소 입력창에 그대로 나타나며, 전송할 수 있는 데이터의 크기 또한 제한적-->
+        <!--검색 엔진의 쿼리(query)와 같이 크기가 작고 중요도가 낮은 정보를 보낼 때 주로 사용-->
+
+    <!--POST 방식은 데이터(data)를 별도로 첨부하여 전달하는 방식-->
+        <!--데이터가 외부에 드러나지 않으며, 전송할 수 있는 데이터의 크기 또한 제한이 없음-->
+        <!--보안성 및 활용성이 GET 방식보다 좋음-->
+
+<!--input 요소-->
+
+    <!--1. 텍스트 입력(text)-->
+    <form action="/examples/media/request.php">
+        검색할 내용을 입력하세요 :
+        <input type="text" name="search">
+    </form>
+
+    <!--2. 비밀번호 입력(password)-->
+    <form>
+        사용자 : <br><input type="text" name="username"><br>
+        비밀번호 : <br><input type="password" name="password">
+    </form>
+
+    <!--3. 라디오 버튼(radio)-->
+    <!--정확한 입력값 전송을 위해서 radio 타입의 모든 input 요소가 반드시 같은 name 속성을 가지고 있어야 함.-->
+    <form>
+
+        <input type="radio" name="lecture" value="html" checked> HTML <br>
+        <input type="radio" name="lecture" value="css"> CSS <br>
+        <input type="radio" name="lecture" value="java"> JAVA <br>
+        <input type="radio" name="lecture" value="cpp"> C++
+
+    </form>
+    <!--4. 체크박스(checkbox)-->
+    <!--체크박스는 라디오 버튼과는 달리 여러 개의 옵션을 한 번에 입력받을 수 있다.-->
+    <form>
+
+        <input type="checkbox" name="lecture" value="html" checked> HTML <br>
+        <input type="checkbox" name="lecture" value="css"> CSS <br>
+        <input type="checkbox" name="lecture" value="java"> JAVA <br>
+        <input type="checkbox" name="lecture" value="cpp" disabled> C++
+
+    </form>
+
+    <!--5. 파일 선택(file)-->
+    <!--<input>태그의 type 속성값을 "file"로 설정하면, 사용자로부터 파일을 전송받을 수 있다-->
+    <form>
+        <input type="file" name="upload_file" accept="image/*">
+    </form>
+
+    <!--6. 선택 입력(select)-->
+    <!--select 요소는 여러 개의 옵션이 드롭다운 리스트(drop-down list)로 되어 있으며, 그중에서 단 하나의 옵션만을 입력받을 수 있다-->
+    <select name="fruit">
+
+        <option value="apple"> 사과
+        <option value="orange" selected> 귤
+        <option value="strawberry"> 딸기
+        <option value="peach"> 복숭아
+
+    </select>
+
+    <!--7. 문장 입력(textarea)-->
+    <textarea name="message" rows="5" cols="30">
+        여기에 적으세요.
+    </textarea>
+
+    <!--8. 버튼 입력(button)-->
+    <button type="button" onclick="alert('버튼을 클릭하셨군요!')">
+        버튼을 눌러주세요.
+    </button>
+
+    <!--9. 전송 버튼(submit)-->
+    <!--<input>태그의 type 속성값을 "submit"으로 설정하면, 사용자로부터 입력받은 데이터(data)를 서버의 폼 핸들러로 제출하는 버튼을 만들 수 있다.-->
+    <form action="/examples/media/request.php">
+
+        어릴 때 자신의 별명을 적어주세요 : <br>
+        <input type="text" name="nickname" value="별명"><br><br>
+        <input type="submit" value="전송">
+
+    </form>
+
+    <!--10. 필드셋(fieldset)-->
+    <!--fieldset 요소는 form 요소와 관련된 데이터들을 하나로 묶어주는 역할-->
+
+        <form action="/examples/media/request.php">
+            <input list="lectures" name="lecture">
+            <datalist id="lectures">
+                <option value="HTML">
+                <option value="CSS">
+                <option value="JAVA">
+                <option value="C++">
+            </datalist>
+            <input type="submit" value="전송">
+        </form>
+
+    </form>
+
+    <!--HTML5에서 추가된 다양한 타입의 input 요소-->
+
+    <!--1. datalist 요소-->
+    <!--datalist 요소는 input 요소에 대해 미리 정의된 옵션 리스트를 명시해 주는 요소-->
+    <!--input 요소의 list 속성값이 datalist 요소의 id 속성값과 반드시 일치해야 연결됨-->
+    <form action="/examples/media/request.php">
+
+        <input list="lectures" name="lecture">
+        <datalist id="lecture">
+
+            <option value="HTML">
+            <option value="CSS">
+            <option value="JAVA">
+            <option value="C++">
+
+        </datalist>
+        <input type="submit" value="전송">
+    </form>
+
+    <!--2. keygen 요소-->
+    <!--keygen 요소의 목적은 사용자가 인증할 수 있는 안전한 방법을 제공-->
+
+    <form action="/examples/media/request.php">
+        사용자 : <br>
+        <input type="text" name="username"><br>
+        암호화방법 : <br>
+        <keygen name="security"><br>
+    </form>
+    <!--3. output 요소-->
+
+    <form action="/examples/media/request.php"
+          oninput="total.value=parseInt(value01.value)/parseInt(value02.value)">
+        <input type="number" id="value01" name="input01" value="20">
+        /
+        ( 0
+        <input type="range" id="value02" name="input02" value="50" min="0" max="100">
+        100 )
+        =
+        <output name="total" for="value01 value02"></output><br><br>
+    </form>
+    <!--input 요소의 속성-->
+    <!--input 요소의 여러 속성을 사용하면 사용자가 입력하는 방식을 더욱 다양하게 제어할 수 있다.-->
+
+    <!--value 속성-->
+    <!--value 속성은 input 요소의 입력 필드(input field)에 나타나는 초깃값을 설정-->
+    <form>
+
+        이름 : <br><input type="text" name="student_name"><br>
+        학번 : <br><input type="text" name="student_id"><br>
+        학과 : <br><input type="text" name="department" value="컴퓨터공학과"><br>
+
+    </form>
+
+    <!--readonly 속성-->
+    <!--readonly 속성은 사용자가 입력 필드를 볼 수는 있으나, 수정할 수는 없도록 설정-->
+    <!--disabled 속성과 다른 점은 전송 버튼(submit)을 누르면 초깃값이 서버로 전송된다는 점-->
+    <form>
+
+        이름 : <br><input type="text" name="student_name"><br>
+        학번 : <br><input type="text" name="student_id"><br>
+        학과 : <br><input type="text" name="department" value="컴퓨터공학과" readonly><br>
+
+    </form>
+
+    <!--disabled 속성-->
+    <!--disabled 속성은 사용자가 입력 필드를 아예 사용할 수 없도록 설정-->
+    <!--disabled 속성이 설정된 입력 필드는 사용할 수도 없고, 클릭할 수도 없다-->
+
+    <form>
+
+        이름 : <br><input type="text" name="student_name"><br>
+        학번 : <br><input type="text" name="student_id"><br>
+        학과 : <br><input type="text" name="department" value="컴퓨터공학과" disabled><br>
+
+    </form>
+
+    <!--maxlength 속성-->
+    <!--maxlength 속성은 입력 필드에 입력할 수 있는 문자의 최대 길이(length)를 설정-->
+
+    <form>
+
+        이름 : <br><input type="text" name="student_name" value="홍길동" maxlength="10"><br>
+        학번 : <br><input type="text" name="student_id"><br>
+
+    </form>
+
+    <!--size 속성-->
+    <!--size 속성은 입력 필드에 보여지는 input 요소의 크기(size)를 설정-->
+    <!--maxlength 속성과는 달리 입력 필드가 한 번에 보여줄 수 있는 문자의 최대 개수만을 의미-->
+
+    <form>
+
+        이름 : <br><input type="text" name="student_name" value="홍길동" size="30"><br>
+        학번 : <br><input type="text" name="student_id"><br>
+
+    </form>
+
+    <!--HTML5에서 추가된 form 요소의 속성-->
+    <!--autocomplete-->
+    <!--autocomplete 속성은 form 요소나 input 요소에 입력된 정보를 저장할지 안 할지를 명시-->
+    <form action="/examples/media/request.php" autocomplete="on">
+        이름 : <input type="text" name="name"><br>
+        나이 : <input type="number" name="age" min="1" max="99" autocomplete="off"><br><br>
+    </form>
+    <!--novalidate-->
+    <!--입력한 정보(data)를 전송할 때 그 정보가 유효한지 아닌지를 검사하지 않았다는 것을 명시-->
+    <form action="/examples/media/request.php" novalidate>
+
+        여러분이 자주 들리는 사이트의 URL 주소를 입력해 주세요 :<br><br>
+        <input type="url" name="url">
+
+    </form>
+    <!--HTML5에서 추가된 input 요소의 속성-->
+    <!--autocomplete-->
+    <!--autofocus-->
+    <!--autofocus 속성은 웹 페이지가 로드(load)될 때, 속성이 적용된 input 요소에 자동으로 포커스(focus)가 가도록 함-->
+    <form action="/examples/media/request.php">
+        사용자 : <input type="text" name="username"><br>
+        비밀번호 : <input type="password" name="password" autofocus><br><br>
+    </form>
+    <!--form-->
+    <!--form 속성은 해당 input 요소의 위치에 상관없이 포함될 form 요소를 명시-->
+    <form action="/examples/media/request.php" id="user">
+        사용자 : <input type="text" name="username"><br><br>
+    </form>
+    ...
+    비밀번호 : <input type="password" name="password" form="user">
+    <!--formaction-->
+    <!--formaction 속성은 입력한 정보(data)를 전송할 때 정보가 전달될 서버 측 파일을 명시-->
+    <form action="/examples/media/request.php">
+        사용자 : <input type="text" name="username"><br>
+        비밀번호 : <input type="password" name="password"><br><br>
+        <input type="submit" value="관리자 권한으로 전송" formaction="/examples/media/request_admin.php"><br>
+
+    </form>
+    <!--formenctype-->
+    <!--formenctype 속성은 입력한 정보(data)를 전송할 때 암호화하는 방법을 명시-->
+    <form action="/examples/media/request_enctype.php" method="post">
+        사용자 이름을 입력해주세요 : <input type="text" name="username"><br><br>
+        <input type="submit" value="암호화하여 전송" formenctype="multipart/form-data"><br>
+    </form>
+    <!--formmethod-->
+    <!--formmethod 속성은 입력한 정보(data)를 전송할 때 사용하는 http 메소드(method)를 명시-->
+    <form action="/examples/media/request.php" method="get">
+        사용자 이름을 입력해주세요 : <input type="text" name="username"><br><br>
+        <input type="submit" value="post 방식으로 전송" formmethod="post"><br>
+    </form>
+    <!--formnovalidate-->
+    <!--formnovalidate 속성은 입력한 정보(data)를 전송할 때 그 정보가 유효한지 아닌지를 검사하지 않았다는 것을 명시-->
+    <form action="/examples/media/request.php">
+        여러분이 자주 들리는 사이트의 URL 주소를 입력해 주세요 : <input type="url" name="url"><br><br>
+        <input type="submit" value="novalidate 방식으로 전송" formnovalidate><br>
+    </form>
+    <!--formtarget-->
+    <!--formtarget 속성은 입력한 정보(data)를 전송한 후, 그 결과로 받은 응답 페이지를 어디에 출력할지를 명시-->
+    <form action="/examples/media/request.php">
+        사용자 이름을 입력해주세요 : <input type="text" name="username"><br><br>
+        <input type="submit" value="응답 화면을 새창에 표시" formtarget="_blank"><br>
+    </form>
+    <!--height and width-->
+    <!--<input>태그의 type 속성이 "image"일 경우에는 height 속성과 width 속성을 사용하여 이미지의 높이와 너비를 명시가능-->
+    <form action="/examples/media/request.php">
+        사용자 : <input type="text" name="username"><br>
+        비밀번호 : <input type="password" name="password" autofocus><br><br>
+        <input type="image" src="/examples/images/img_penguin.png" alt="전송" height="26" width="26">
+        그림을 클릭하시면 전송됩니다!
+    </form>
+    <!--list-->
+    <!--list 속성은 해당 input 요소에 대한 미리 정의된 옵션 리스트를 설정하는 datalist 요소와 관련-->
+    <form action="/examples/media/request.php">
+        <input list="lectures" name="lecture">
+        <datalist id="lectures">
+            <option value="HTML">
+            <option value="CSS">
+        </datalist>
+    </form>
+    <!--min and max-->
+    <!--min속성과 max 속성은 input 요소에 입력할 수 있는 최솟값과 최댓값을 명시-->
+    <form action="/examples/media/request.php">
+        <input type="date" name="theday" min="1977-01-01" max="2020-12-31"><br><br>
+        <input type="submit" value="전송">
+    </form>
+    <!--multiple-->
+    <!--multiple 속성은 사용자가 input 요소에 값을 두 개 이상 입력하는 것을 허용-->
+    <form action="/examples/media/request.php">
+        <input type="file" name="uploadfile" multiple><br><br>
+        <input type="submit" value="전송">
+    </form>
+    <!--pattern (정규식)-->
+    <!--pattern 속성은 input 요소에 입력된 값을 검사하기 위한 정규 표현식(regular expression)을 명시-->
+    <form action="/examples/media/request.php">
+        <input type="email" name="email"
+               pattern="[a-zA-Z0-9]+[@][a-zA-Z0-9]+[.]+[a-zA-Z]+[.]*[a-zA-Z]*" title="이메일 양식">
+    </form>
+    <!--placeholder-->
+    <!--placeholder 속성은 input 요소에 입력되어야 할 값에 대한 힌트를 제공-->
+    <form action="/examples/media/request.php">
+
+        사용자 : <input type="text" name="username" placeholder="홍길동"><br>
+        비밀번호 : <input type="password" name="password" placeholder="1234"><br><br>
+
+    </form>
+    <!--required-->
+    <!--required 속성은 반드시 입력되어야 할 필수 input 요소를 명시-->
+    <form action="/examples/media/request.php">
+        이름 : <input type="text" name="name" required> (이름은 반드시 입력해야 해요!)<br>
+        나이 : <input type="number" name="age" min="1" max="99"><br><br>
+    </form>
+    <!--step-->
+    <!--step 속성은 input 요소에 입력할 수 있도록 허용된 숫자 간격을 명시-->
+    <form action="/examples/media/request.php">
+        여러분이 가장 좋아하는 숫자는 몇인가요? (단, -30부터 30사이에서 5단위로 골라주세요!)<br><br>
+        <input type="number" name="favnum" min="-30" max="30" step="5"><br><br>
+    </form>
+
+</body>
+</html>
