@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <!--XHTML은 EXtensible HTML을 의미-->
+    <!--XHTML은 HTML과 거의 비슷하지만, 문법의 적용이 조금 더 엄격한 특징-->
+
+    <!-- XHTML에서의 변경 사항-->
+
+    <!-- 문서의 구조적 측면-->
+    <!-- - XHTML DOCTYPE을 반드시 명시해야 합니다.-->
+    <!-- - <html>태그의 xmlns 속성을 반드시 명시해야 합니다.-->
+    <!-- - <html>, <head>, <title>, <body>태그를 반드시 사용해야 합니다.-->
+
+
+    <!-- 문서의 요소적 측면-->
+    <!-- - 모든 태그는 반드시 닫혀야 합니다.-->
+    <!-- - 모든 태그는 순서대로 닫혀야 합니다.-->
+    <!-- - 모든 요소는 반드시 소문자로 사용되어야 합니다.-->
+    <!-- - XHTML 문서는 반드시 하나의 root 요소를 포함해야 합니다.-->
+
+
+    <!-- 문서의 속성적 측면-->
+    <!-- - 속성 이름은 반드시 소문자로 사용되어야 합니다.-->
+    <!-- - 속성값은 반드시 따옴표로 감싸야 합니다.-->
+    <!-- - 속성값 생략이 없어졌기 때문에 반드시 속성값을 명시해야 합니다.-->
+
+
+    <!-- HTML과 XHTML의 차이점-->
+    <!-- 1. 종료 태그가 없는 빈 태그(empty tag)는 반드시 끝에 공백과 함께 슬래시(/)를 붙여야 함-->
+    <hr />
+    <!--2. 비어있지 않은 요소는 반드시 종료 태그를 가져야 함-->
+    <p>첫 번째 문장</p><p>두 번째 문장</p>
+
+    <!--3. 요소들은 반드시 열린 순서대로 닫혀야 함-->
+    <em><p>This is some text.</p></em>
+
+    <!--4. <img>태그에는 반드시 alt 속성이 기술되어야 함-->
+    <img src="four-stars_01.png" alt="explanation" />
+
+    <!--5. 모든 텍스트(text)는 반드시 태그로 감싸야 함-->
+    <p>본문에 사용되는 텍스트 단락</p>
+
+    <!-- 6. 속성값은 반드시 따옴표로 감싸야 함-->
+    <!-- <td rowspan="3">-->
+
+    <!--7. 태그 이름이나 속성 이름에는 반드시 소문자만을 사용해야 함-->
+    <p>반드시 소문자만을 사용하자.</p>
+
+    <!--8. 속성값 생략이 없어졌으므로, 반드시 속성값을 명시-->
+    <label>
+        <textarea readonly="readonly" rows="1" cols="10">읽기만 가능합니다.</textarea>
+    </label>
+
+</body>
+</html>
