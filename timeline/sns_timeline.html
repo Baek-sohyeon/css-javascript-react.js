@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        textarea {
+            width: 90%;
+            resize: none; /* 사용자 임의 변경 불가 */
+            font-size: 15pt;
+            border: none;
+            margin: 20px;
+        }
+
+        textarea:focus {
+            outline: none;
+        }
+
+        body{
+            background-color: #DAE0E6;
+            font-weight: bold;
+        }
+
+        div{
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        button{
+            height: 50px;
+            font-size: 12pt;
+            font-weight: bold;
+            border: none;
+        }
+
+
+        .container{
+
+            background-color: white;
+            border-radius: 12px;
+            width: 50%;
+            height: 90px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin:0 auto;
+            margin-bottom: 20px !important;
+            font-size: 13pt;
+
+        }
+
+        .container:hover{
+
+
+        }
+
+        .move:hover .x {
+            transition-property: opacity, left;
+            transition-delay: .5s;
+            transition-duration: .5s;
+            opacity: 1;
+
+        }
+
+        .move:hover > .container{
+            transition: 1s;
+            transform: translateX(-100px);
+        }
+
+        .container_gray{
+
+            width: 50%;
+            padding: 10px;
+            font-size: 13pt;
+            background-color: #EDF1F5;
+            border-radius: 80px;
+        }
+
+        .container_gray:hover{
+            transition: 1s;
+            background-color: #DAE0E6;
+        }
+
+        #popup{
+            visibility: hidden;
+            left:40%;
+            top:25%;
+            bottom:50%;
+            position: fixed;
+            background-color:white;
+            width:500px;
+            height: 450px;
+            text-align: center;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow:10px 10px 10px #999;
+
+        }
+
+        #one{
+            transition: 0.5s;
+        }
+
+        p{
+            margin-inline-start: 10px;
+        }
+
+        .x{
+            width: 40px;
+            height : 40px;
+            left: 73%;
+            top:40%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            /*display: none;*/
+            transition-property: opacity, right;
+            opacity: 0;
+        }
+
+
+    </style>
+</head>
+<body>
+
+
+    <div id="one" onclick="BackClick()">
+
+        <img src="C:\Users\82104\WebstormProjects\untitled\facebook.png" alt="" width="100%" style="margin-bottom: 20px">
+        <div class="container">
+            <img src="C:\Users\82104\WebstormProjects\untitled\person.png" alt="" height="60px" width="70px">
+            <div id="container_gray" onclick="event.stopPropagation();Click()" style="width: 90%">
+                <p>무슨 생각을 하고 계신가요?</p>
+            </div>
+        </div>
+
+
+        <div id ="timeline">
+<!--            <div class ="move" style="position: relative">-->
+<!--                <div class="container">-->
+
+<!--                    <div style="flex-direction: row">-->
+<!--                        <img src="C:\Users\82104\WebstormProjects\untitled\person.png" alt="" height="60px" width="70px">-->
+<!--                        <p>백소현<p>-->
+<!--                        <p style="color: dimgray">님이 타임라인을 남겼습니다.</p>-->
+<!--                    </div>-->
+<!--                    <div class="container_gray" >-->
+<!--                        <p>안뇽</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <img src="C:\Users\82104\WebstormProjects\untitled\silver-close-button.png" alt="" class="x" onclick="delete(num)">-->
+<!--            </div>-->
+
+        </div>
+    </div>
+
+    <div  id="popup">
+        <h2>게시물 만들기</h2>
+        <hr width="100%">
+        <div style="flex-direction:row;">
+            <img src="C:\Users\82104\WebstormProjects\untitled\person.png" alt="" height="60px" width="70px">
+            <p>백소현</p>
+        </div>
+
+        <textarea cols="30" rows="9" placeholder="무슨 생각을 하고 계신가요?"></textarea>
+        <br>
+        <div style="display: flex; flex-direction: column;">
+            <button onclick="check();">게시</button>
+        </div>
+    </div>
+
+
+<script>
+    let postInput = document.querySelector("textarea");
+    let timeline = document.querySelector("#timeline");
+    let lastid;
+    window.onload = async () => {
+        const postResponse = await fetch('http://ec2-52-78-131-251.ap-northeast-2.compute.amazonaws.com/feed/',{
+            method:'get',
+        });
+
+
+        const posts = await postResponse.json();
+        lastid = posts[posts.length-1].id;
+        for (let i = 0; i<posts.length; i++) {
+            post(posts[i].id, posts[i].owner, posts[i].content);
+        }
+    };
+
+    const check = () => {
+        if (postInput.value.length<1){
+            alert("내용을 입력해주세요.");
+        }
+        else{
+            postClick();
+        }
+
+    };
+
+    const postClick = async() => {
+
+
+
+        await fetch('http://ec2-52-78-131-251.ap-northeast-2.compute.amazonaws.com/feed/',{
+            method:'post',
+            body : JSON.stringify({
+                owner : "owner",
+                content: postInput.value
+            }),
+            headers:{
+                "Content-type" : "application/json; charset=UTF-8"
+            }
+        })
+
+        .then(response => response.json())
+        .then(response =>{
+            post(response.id,'owner',postInput.value);
+            Close();
+
+        })
+    };
+
+    const post = (num, name, description) => {
+
+        let move = document.createElement('div');
+        move.setAttribute('class','move');
+        move.setAttribute('style','position:relative');
+
+        let container = document.createElement('div');
+        container.setAttribute('class', 'container');
+
+        let temp = document.createElement('div');
+        temp.setAttribute("style","flex-direction:row");
+
+        let container_text = document.createElement('div');
+        container_text.setAttribute('class','container_gray');
+
+
+        let img = document.createElement('img');
+        img.setAttribute('src','C:\\Users\\82104\\WebstormProjects\\untitled\\person.png');
+
+        img.width=70;
+        img.height=60;
+
+        let del = document.createElement('img');
+        del.setAttribute('src','C:\\Users\\82104\\WebstormProjects\\untitled\\silver-close-button.png');
+
+        del.setAttribute('onclick','Delete('+num+')');
+        del.setAttribute('class','x');
+
+        let owner = document.createElement('p');
+
+
+        let content = document.createElement('p');
+
+
+        let a = document.createElement('p');
+        a.setAttribute("style","color:dimgray");
+
+        owner.appendChild(document.createTextNode(name));
+        content.appendChild(document.createTextNode(description));
+        a.appendChild(document.createTextNode("님이 타임라인을 남겼습니다."));
+
+
+
+        temp.appendChild(img);
+        temp.appendChild(owner);
+        temp.appendChild(a);
+
+        container.appendChild(temp);
+        container_text.appendChild(content);
+        container.appendChild(container_text);
+
+
+        move.appendChild(container);
+        move.appendChild(del);
+
+        timeline.appendChild(move);
+
+
+    };
+
+    const Click = () => {
+        document.getElementById("popup").style.visibility='visible';
+        document.getElementById("one").style.opacity='0.5';
+
+    };
+
+    const Close = () => {
+        document.getElementById("popup").style.visibility='hidden';
+        document.getElementById("one").style.opacity='1';
+        document.querySelector("textarea").value="";
+    };
+
+    const BackClick = () => {
+        if(document.getElementById("popup").style.visibility='visible'){
+            Close();
+        }
+    };
+
+    const Delete =  async(num) => {
+
+        let del = confirm("삭제하시겠습니까?");
+
+        if (del===true){
+            await fetch('http://ec2-52-78-131-251.ap-northeast-2.compute.amazonaws.com/feed/'+ num,{
+                method:'delete',
+            })
+
+        }
+        window.location.reload();
+    };
+
+
+
+</script>
+
+</body>
+</html>
